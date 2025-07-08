@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    login
+{% endblock %}
+
+{% block main %}
+<div style = "text-align : center">
+        <h1>login</h1>
+        <form action = "/login" method = "POST">
+            <input name = "username" type = "text" placeholder = "Username" value = "{{username}}">
+            <input name = "password" type = "password" placeholder = "Password">
+            <button type = "submit">
+                Login
+            </button>
+        </form>
+        <br>
+        <form action = "/register">
+            <button type = "">
+                Don't have an account?
+            </button>
+        </form>
+        <br>
+        <form action = "/register">
+            <button type = "">
+                Forgot account?
+            </button>
+        </form>
+</div>
+{% endblock %}

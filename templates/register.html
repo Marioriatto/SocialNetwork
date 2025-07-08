@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    register
+{% endblock %}
+
+{% block main %}
+<div style = "text-align : center">
+        <h1>register</h1>
+        <form action = "/register" method = "POST">
+            <h3>enter your name</h3>
+            <input name = "name" type = "text" placeholder = "Name" value = "{{name}}">
+            <input name = "surname" type = "text" placeholder = "Surname" value = "{{surname}}">
+            <h3>enter your username and password</h3>
+            <input name = "username" type = "text" placeholder = "Username" value = "{{username}}">
+            <input name = "password" type = "password" placeholder = "Password" >
+            <input name = "confirmation" type = "password" placeholder = "Password confirmation">
+            <br>
+            <br>
+            <button type = "submit">
+                register
+            </button>
+        </form>
+</div>
+{% endblock %}

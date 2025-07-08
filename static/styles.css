@@ -1,0 +1,290 @@
+body {
+    background-color: #333;
+    color: #212529;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+.flashes{
+    text-align:center;
+    color:#bbb;
+    font-family:"Geist Mono", monospace;
+}
+#nav{
+    position:fixed;
+    top:7%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+}
+button{
+    background-color: #fff;
+    padding: 15px 32px;
+}
+.link_username{
+
+    text-decoration: none;
+    color : #bbb;
+}
+.link_username:hover{
+
+    text-decoration: none;
+    color : #555;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.message_container{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+}
+
+.header {
+    background-color: #477bff;
+    color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.section {
+    padding: 0.5rem 2rem 1rem 2rem;
+}
+
+.section:hover {
+    background-color: #f5f5f5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+h1 {
+    font-family:"Geist Mono", monospace;
+    font-size: 48px;
+    color : #bbb;
+}
+h3 {
+    font-family:"Geist Mono", monospace;
+    font-size: 28px;
+    color : #bbb;
+}
+h4 {
+    font-family:"Geist Mono", monospace;
+    font-size: 22px;
+    color : #bbb;
+}
+h2 {
+    font-family:"Geist Mono", monospace;
+    font-size: 36px;
+    color : #bbb;
+}
+a{
+    font-family:"Geist Mono", monospace;
+    font-size: 20px;
+    color : #bbb;
+}
+p {
+    font-family:"Geist Mono", monospace;
+    font-size: 20px;
+    color : #bbb;
+}
+button, input[type="submit"] {
+    font-family:"Geist Mono", monospace;
+    background-color: #222;
+    color :#ccc;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle;
+}
+button:hover, input[type="submit"] {
+    background-color: #ccc;
+    color :#222;
+}
+
+
+input {
+    margin : 8px;
+    padding : 12px;
+    border-radius: 6px;
+    line-height: 1.8;
+    width: 25%;
+}
+label{
+    text-align: center;
+    margin: 0;
+    font-family:"Geist Mono", monospace;
+    line-height: 1.8;
+    width: 25%;
+}
+input[type= "text"]{
+    background-color: #222;
+    font-size:18px;
+    color : #ccc;
+    font-family:"Geist Mono", monospace;
+}
+input[type="text"]:hover {
+    background-color: #ccc;
+    color : #222;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+input[type= "password"]{
+    background-color: #222;
+    font-size:18px;
+    color : #ccc;
+    font-family:"Geist Mono", monospace;
+}
+input[type="password"]:hover {
+    background-color: #ccc;
+    color : #222;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding : 20px;
+    background-color: #222;
+
+}
+.message button{
+    border-radius : 12px;
+}
+.message{
+    background-color: #ddd;
+    border-radius: 12px;
+
+}
+.scroll{
+    width : 300px;
+    overflow-x:auto;
+}
+.post-container{
+    display:flex;
+    flex-direction:column;
+    background-color: #333;
+    justify-content: center;
+}
+.post{
+    background-color:#222;
+    width:50%;
+    border-radius:20px;
+    margin-left:25%;
+    margin-bottom:50px;
+}
+.post-head{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    color : #bbb;
+    margin-left:10%;
+    margin-right:5%;
+}
+.post-body{
+    margin-top:2%;
+    margin-left:10%;
+    margin-right:10%;
+    color : #bbb;
+}
+.post-head-item{
+    left-margin:20%;
+}
+.post-text {
+    background-color:#222;
+    font-size:125%;
+    width:90%;
+}
+
+.post-submit{
+    background-color:#bbb;
+    color:#222;
+    width:90%;
+    border-radius:5px;
+}
+.material-icons{
+    margin-left:10px;
+    margin-right:10px;
+    color : #ccc;
+}
+.material-icons:hover{
+    color : #555;
+}
+
+.send-message{
+    position:sticky;
+    bottom:20px;
+}
+.add-post{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:40%;
+    background-color:#bbb;
+    border-radius:20px;
+    display : flex;
+    flex-direction:column;
+}
+.add-post h2{
+    color:#222;
+    text-align:center;
+    font-size:24px;
+}
+.add-post button{
+    color:#222;
+    text-align:center;
+    font-size:20px;
+}
+#logo{
+    font-size:25px;
+    font-family:"Geist Mono", monospace;
+    margin:0.5%;
+}
+.notification-container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background-color:#333;
+    margin-left:25%;
+}
+.notification{
+    background-color:#222;
+    width:70%;
+    border-radius:20px;
+    text-align:center;
+}
+.comment-button{
+    background-color:#bbb;
+    color:#222;
+    margin-left:25%;
+    width:50%;
+    border-radius:10px;
+}
+.comment-button{
+    background-color:#222;
+    color:#bbb;
+    margin-left:25%;
+    width:50%;
+    border-radius:10px;
+}
+.delete{
+    background-color:#bbb;
+    color:#222;
+    width:90%;
+    border-radius:5px;
+}
+.delete:hover{
+    background-color:#c00;
+    color:#ccc;
+    width:90%;
+    border-radius:5px;
+}

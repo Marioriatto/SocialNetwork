@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    messages
+{% endblock %}
+
+{% block main %}
+<div class = "message_container">
+    <div class = "item" style = "items-align : right" aria-label ="messages">
+        <div class = "scroll">
+            <br></br>
+            {% for i in range(10) %}
+                <button class = "message">message...</button>
+                <br></br>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+
+    </div>
+</div>
+    <div class = "send-message" style = "text-align : right">
+        <input type = "text" name = "message" autofocus placeholder = "Message">
+        <button type = "submit">
+            <i class="material-icons">send</i>
+        </button>
+    </div>
+{% endblock %}

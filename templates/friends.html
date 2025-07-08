@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    friends
+{% endblock %}
+
+{% block main %}
+<header>
+    <div style = "text-align : center">
+        <h2>
+            {{session["username"]}} friends:
+        </h2>
+    </div>
+</header>
+{% if len != 0 %}
+    {% for friend in friends%}
+                <div class = "post" style = "text-align : center; display:flex;align-items:center; justify-content:center;">
+                    <a style = "margin:2%" class = "link_username" href = "/homepage?username={{ friend[0]['username'] }}">{{ friend[0]["name"] + " " + friend[0]["surname"]}}</a>
+                </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

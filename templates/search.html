@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    search
+{% endblock %}
+
+{% block main %}
+<br>
+<div style = "text-align : center">
+    <form action = "/search" method = "GET" class = "search">
+        <input type = "text" autofocus name = "name" placeholder = "Search">
+        <button type = "submit" ><i class="material-icons">search</i></button>
+    </form>
+</div>
+{% if users %}
+    {% for user in users%}
+                <div style = "text-align : center">
+                    <h1> <a class = "link_username" href = "/homepage?username={{ user['username'] }}">{{ user["name"] + " " + user["surname"]}}</a> </h1>
+                    <h3>{{ user["surname"] }}'s calification : {{ user["calification"] }}%</h3>
+                </div>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

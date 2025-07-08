@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+{% if post %}
+<br>
+<br>
+<div class = "post">
+    <div class ="post-head">
+        <div class = "post-head-item">
+            <h4>
+            <a class = "link_username" href = "/homepage?username={{post['username']}}">{{ post[0]["name"] }} {{ post[0]["surname"] }}</a>
+                {{ post[0]["date"] }}
+            </h4>
+        </div>
+        <div class = "post-head-item">
+
+            {% if post[0]['user_id'] == session['user_id']%}
+            <form action = "/post" method = "POST">
+
+                <button class = "edit-post" name = "edit" value = true type = "submit">
+                    <input hidden name = "post_id" value = "{{post[0]['post_id']}}">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button class = "edit-post" name = "delete" value = true type = "submit">
+                    <input hidden name = "post_id" value = "{{post[0]['post_id']}}">
+                    <i class="material-icons">delete</i>
+                </button>
+            </form>
+
+            {% endif%}
+
+        </div>
+    </div>
+
+    <h4 class = "post-body">
+            {{ post[0]["body"] }}
+    </h4>
+    <br>
+    {% if post[0]["media"] != None %}
+        <iframe>
+
+        </iframe>
+    {% endif%}
+</div>
+<form action="/post" method = "POST">
+        <button class = "comment-button" type = "submit" name = "comment" value = "true">
+            <input hidden name = "post_id" value = "{{post_id}}">
+            comment
+        </button>
+</form>
+{% endif%}
+
+{% if len > 0 %}
+
+
+</form>
+
+<div style = "text-align:center">
+    <h2>
+        comments:
+    </h2>
+</div>
+<div class = "post-container">
+
+        {% for comment in comments %}
+            <div class = "post">
+                <div class ="post-head">
+                    <div class = "post-head-item">
+                        <h4>
+                        <a class = "link_username" href = "/homepage?username={{post['username']}}">{{ comment["name"] }} {{ comment["surname"] }}</a>
+                            {{ comment["date"] }}
+                        </h4>
+                    </div>
+                </div>
+                <h4 class = "post-body"  >
+                    <a class = "link_username" href = "/post?post_id={{comment['post_id']}}">
+
+                            {{ comment["body"] }}
+
+                    </a>
+                </h4>
+
+            </div>
+        {% endfor%}
+    {% endif %}
+</div>
+
+{% if delete %}
+    <div class = "add-post" style = "background-color:#222;">
+        <center>
+            <h3 style="color:#ccc">
+                delete post?
+            </h3>
+                <form action = "/post" method = "POST">
+                    <input hidden name = "delete_data"  value = "true">
+                    <input hidden name = "post_id" value = "{{post_id}}">
+                    <button class = "delete" type = "submit" >
+                        delete
+                    </button>
+                </form>
+        </center>
+        <br>
+    </div>
+{% endif %}
+
+
+{% if edit %}
+    <div class = "add-post">
+        <center>
+            <h2>
+                edit {{username}}'s post
+            </h2>
+            <form action = "/post" method = "POST">
+                <input class = "post-text" name = "edit_data" type = "text" value = "{{post[0]['body']}}">
+                <input hidden name = "post_id" value = "{{post_id}}">
+                <button class = "post-submit" type = "submit">
+                    save
+                </button>
+            </form>
+
+        </center>
+     </div>
+{% endif%}
+{% if comment %}
+    <div class = "add-post">
+        <center>
+            <h2>
+                comment
+            </h2>
+            <form action = "/post" method = "POST">
+                <input autofocus class = "post-text" name = "comment_data" type = "text">
+                <input hidden name = "post_id" value = "{{post_id}}">
+                <button class = "post-submit" type = "submit">
+                    post
+                </button>
+            </form>
+
+        </center>
+     </div>
+{% endif%}
+{% endblock%}
+

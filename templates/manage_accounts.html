@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    manage accounts
+{% endblock %}
+
+{% block main %}
+<div style = "text-align : center">
+    <h1>hello, {{ username }}</h1>
+</div>
+<div>
+    <form action = "/manage_accounts" method = "POST">
+        <h4>
+           delete account
+           </h4>
+            <button>
+                <i class = "material-icons">
+                    delete
+                </i>
+            </button>
+        </form>
+
+</div>
+{% endblock %}

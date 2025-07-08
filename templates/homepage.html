@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ user[0]["name"] }} homepage
+{% endblock %}
+
+{% block main %}
+{% if user%}
+<div style = "text-align : center">
+    <h2>{{ user[0]["name"] + " " + user[0]["surname"]}}</h2>
+    {% if friends != NULL %}
+    <i class = "material-icons">
+        {% if friends == 2%}
+            group
+        {% endif %}
+    </i>
+    {% endif %}
+</div>
+{% if user[0]["id"] != session["user_id"] %}
+<div style = "text-align : center">
+    <form action = "/homepage?username={{ session['foreign_user'] }}" method = "POST">
+        {% if friends != NULL %}
+            <button class = "icon" type = "submit" name = "add" value = "True">
+            <i class="material-icons">
+                {% if friends == 2%}
+                    person_remove
+                {% endif %}
+                {% if friends == 0%}
+                    person_add
+                {% endif %}
+                {% if friends == 1%}
+                    pending
+                {% endif %}
+            </i>
+            </button>
+
+            {% endif %}
+    </form>
+
+</div>
+<br>
+<br>
+<div>
+    {% if len_commons > 0%}
+    <div style = "text-align:center">
+        <h2>
+            friends in common:
+        </h2>
+    </div>
+        {% for common in commons%}
+                    <div class = "post" style = "text-align : center; display:flex;align-items:center; justify-content:center;">
+                        <a style = "margin:2%" class = "link_username" href = "/homepage?username={{ common[0]['username'] }}">{{ common[0]["name"] + " " + common[0]["surname"]}}</a>
+                    </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endif %}
+<div style = "text-align:center">
+    <h2>
+        recent posts:
+    </h2>
+</div>
+<br>
+<div class = "post-container">
+    {% if len > 0 %}
+    {% for post in posts %}
+        <div class = "post">
+            <div class ="post-head">
+                <div class = "post-head-item">
+                    <h3>
+                        <a class = "link_username" href = "/homepage?username={{post['username']}}">{{ post["name"] }} {{ post["surname"] }}</a>
+                        {{ post["date"] }}
+                    </h3>
+                </div>
+                <div class = "post-head-item">
+                    <a class = "link_username" href = "/post?post_id={{post['post_id']}}">
+                        <i class="material-icons">more_vert</i>
+                    </a>
+                </div>
+            </div>
+
+            <h4 class = "post-body">
+                <a class = "link_username" href = "/post?post_id={{post['post_id']}}">
+
+                    {{ post["body"] }}
+
+            </a>
+            </h4>
+            {% if post["media"] != None %}
+                <iframe>
+
+                </iframe>
+            {% endif%}
+        </div>
+    {% endfor%}
+{% endif %}
+</div>
+{%endif%}
+{% if not user%}
+<div style = "text-align : center">
+    <h2>{{ group[0]["name"]}}</h2>
+</div>
+{%endif%}
+{% endblock %}
+
+

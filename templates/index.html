@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+    <div style = "text-align : center">
+        <h2>hello, {{ username }}</h2>
+
+    </div>
+
+    <div class = "post-container">
+        {% if len > 0 %}
+            {% for post in posts %}
+                <div class = "post">
+                    <div class ="post-head">
+                        <div class = "post-head-item">
+                            <h4>
+                            <a class = "link_username" href = "/homepage?username={{post['username']}}">{{ post["name"] }} {{ post["surname"] }}</a>
+                                {{ post["date"] }}
+                            </h4>
+                        </div>
+                        <div class = "post-head-item">
+                                <a class = "link_username" href = "/post?post_id={{post['post_id']}}" aria-label ="edit">
+                                    <i class="material-icons">chat</i>
+                                </a>
+                        </div>
+                    </div>
+                    <h4 class = "post-body"  >
+                        <a class = "link_username" href = "/post?post_id={{post['post_id']}}">
+
+                                {{ post["body"] }}
+
+                        </a>
+                    </h4>
+
+                    {% if post["media"] != None %}
+                        <iframe>
+
+                        </iframe>
+                    {% endif%}
+                </div>
+            {% endfor%}
+        {% endif %}
+        {% if len == 0 %}
+                <center>
+                    <h3>
+                    post something!
+                </h3>
+                </center>
+
+        {% endif %}
+    </div>
+
+
+{% if type %}
+    <div class = "add-post">
+        <center>
+            <h2>
+                create post
+            </h2>
+            <div style = 'margin : 5%'>
+                <form action = "/" method = "POST">
+                    <input class = "post-text" name = "data" type = "text">
+                    <button class = "post-submit">
+                        post
+                    </button>
+                </form>
+            </div>
+
+        </center>
+    </div>
+{% endif %}
+
+{% endblock %}
